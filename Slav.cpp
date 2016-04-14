@@ -1,6 +1,9 @@
 #include "Slav.h"
 #include <fstream>
-
+#include <string>
+#include <iterator>
+#include <cstdlib>
+#include <iostream>
 using namespace std;
 
 vector <string> Slav::names;
@@ -22,8 +25,14 @@ Slav::Slav()
 	_name = names[rand() % amountOfNames];
 	_id = _counter++;
 }
-
-string Slav::description()
+sex Slav::MaleOrFemale()
 {
+	if(_name[_name.length()-1]=='a')
+		return female;
+	else
+		return male;
+}
+string Slav::description()
+{	
 	return string("  ") + _name + " [" + to_string(_id) + "]";
 }
